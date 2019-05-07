@@ -2,15 +2,15 @@
 
 function solution (A) {
   let stackSize = 0
-  let candidate = null
+  let candidateIndex = null
   let count = 0
 
   for (let i = 0; i < A.length; i++) {
     if (stackSize === 0) {
       stackSize++
-      candidate = A[i]
+      candidateIndex = i
     } else {
-      if (candidate !== A[i]) {
+      if (A[candidateIndex] !== A[i]) {
         stackSize--
       } else {
         stackSize++
@@ -19,9 +19,9 @@ function solution (A) {
   }
   if (stackSize === 0) return -1
   for (let i = 0; i < A.length; i++) {
-    if (A[i] === candidate) count++
+    if (A[i] === A[candidateIndex]) count++
   }
-  return count > Math.floor(A.length / 2) ? candidate : -1
+  return count > Math.floor(A.length / 2) ? candidateIndex : -1
 }
 
 module.exports = solution
