@@ -10,7 +10,7 @@ function isPrime (n) {
   if (n === 1) return false
   if (n === 2) return true
   if (n % 2 === 0) return false
-  const end = Math.floor(Math.sqrt(n)) + 2
+  const end = Math.floor(Math.sqrt(n)) + 1
   for (let i = 3; i < end; i += 2) {
     if (n % i === 0) return false
   }
